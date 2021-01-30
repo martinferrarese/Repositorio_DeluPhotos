@@ -1,4 +1,4 @@
-package com.deluphotos.deluphotos.Controller;
+package com.deluphotos.deluphotos.Controlador;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 @RequestMapping(path="/api")
-public class TestController {
+public class ControladorDePrueba {
 
     @GetMapping(path = "/saludar-a-maca")
     public String helloWorld(){
