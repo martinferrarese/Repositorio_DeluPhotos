@@ -1,4 +1,4 @@
-package com.deluphotos.deluphotos.Unitarios.Repositorio;
+package com.deluphotos.deluphotos.Unitarios.Repositorios;
 
 import com.deluphotos.deluphotos.Entidades.Producto;
 import com.deluphotos.deluphotos.Repositorios.RepositorioDeProducto;
@@ -9,14 +9,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class RepositorioDeProductoTest {
+public class RepositorioDeProductoUnitTest {
 
     @Autowired
     private TestEntityManager testEntityManager;
@@ -42,6 +41,7 @@ public class RepositorioDeProductoTest {
         producto1.setPrecio(190L);
         producto1.setDescripción("Tazas re copadas");
         testEntityManager.persist(producto1);
+        testEntityManager.flush();
 
         producto2 = new Producto();
         producto2.setNombre("Polariod");
@@ -54,6 +54,8 @@ public class RepositorioDeProductoTest {
         producto3.setPrecio(870L);
         producto3.setDescripción("Remera de lo maś cheta");
         testEntityManager.persist(producto3);
+
+        testEntityManager.flush();
     }
 
     private void cuandoObtengoTodosLosProductos() {
