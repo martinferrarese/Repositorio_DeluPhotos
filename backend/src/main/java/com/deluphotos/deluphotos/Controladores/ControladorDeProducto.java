@@ -1,17 +1,13 @@
-package com.deluphotos.deluphotos.Controlador;
+package com.deluphotos.deluphotos.Controladores;
 
-import com.deluphotos.deluphotos.Entidad.Producto;
-import com.deluphotos.deluphotos.Repositorio.RepositorioDeProducto;
+import com.deluphotos.deluphotos.Entidades.Producto;
+import com.deluphotos.deluphotos.Repositorios.RepositorioDeProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-
 @RestController()
 @RequestMapping(path="/api")
-public class ControladorDePrueba {
+public class ControladorDeProducto {
 
     @Autowired
     private RepositorioDeProducto repositorioDeProducto;
@@ -23,7 +19,7 @@ public class ControladorDePrueba {
 
     @GetMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "¡Funciona!";
     }
 
     @PostMapping("/agregarProducto")
