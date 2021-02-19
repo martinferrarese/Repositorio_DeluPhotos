@@ -3,7 +3,10 @@ package com.deluphotos.deluphotos.Controladores;
 import com.deluphotos.deluphotos.Entidades.Producto;
 import com.deluphotos.deluphotos.Repositorios.RepositorioDeProducto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController()
 @RequestMapping(path="/api")
@@ -23,7 +26,8 @@ public class ControladorDeProducto {
     }
 
     @PostMapping("/agregarProducto")
-    public @ResponseBody String agregarProducto(@RequestParam String nombre, @RequestParam Long precio, @RequestParam String descripción){
+    public @ResponseBody ResponseEntity agregarProducto(@RequestParam String nombre, @RequestParam Long precio, @RequestParam String descripción){
+        ResponseEntity respuesta = null;
         Producto nuevoProducto = new Producto();
         nuevoProducto.setNombre(nombre);
         nuevoProducto.setPrecio(precio);
@@ -31,12 +35,15 @@ public class ControladorDeProducto {
 
         repositorioDeProducto.save(nuevoProducto);
 
-        return String.format("Se agregó el nuevo producto con nombre: {0}, precio: {1} y descripción: {2}", nombre, precio.toString(), descripción);
+        return respuesta.ok().body("Nuevo producto agregado");
     }
 
     @GetMapping("/obtenerProductos")
-    public @ResponseBody Iterable<Producto> obtenerTodosLosProductos(){
-        return repositorioDeProducto.findAll();
+    public @ResponseBody ResponseEntity obtenerTodosLosProductos(){
+        ResponseEntity respuesta = null;
+        List<Producto> resultado = repositorioDeProducto.findAll();
+
+        return respuesta.ok().body(resultado);
     }
 
 }

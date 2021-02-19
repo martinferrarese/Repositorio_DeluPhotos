@@ -39,7 +39,7 @@ public class ServicioDeProductoUnitTest {
     private ServicioDeProducto servicioDeProducto;*/
 
     @Mock
-    private RepositorioDeProducto repositorioDeProducto;
+    private RepositorioDeProducto mockRepositorioDeProducto;
 
     @InjectMocks
     private ServicioDeProducto servicioDeProducto;
@@ -79,7 +79,7 @@ public class ServicioDeProductoUnitTest {
 
     private void dadoQueLaBasePoseeTresProductos() {
         List<Producto> productos = inicializaTresProductos();
-        when(repositorioDeProducto.findAll()).thenReturn(productos);
+        when(mockRepositorioDeProducto.findAll()).thenReturn(productos);
     }
 
     private void cuandoSeObtienenTodosLosProductos() {
