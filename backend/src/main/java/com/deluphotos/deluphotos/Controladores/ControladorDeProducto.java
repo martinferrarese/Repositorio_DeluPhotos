@@ -27,16 +27,11 @@ public class ControladorDeProducto {
     }
 
     @PostMapping("/agregarProducto")
-    public @ResponseBody ResponseEntity agregarProducto(@RequestParam String nombre, @RequestParam Long precio, @RequestParam String descripción){
+    public @ResponseBody ResponseEntity agregarProducto(@RequestBody Producto nuevoProducto){
         ResponseEntity respuesta = null;
-        Producto nuevoProducto = new Producto();
-        nuevoProducto.setNombre(nombre);
-        nuevoProducto.setPrecio(precio);
-        nuevoProducto.setDescripción(descripción);
+        servicioDeProducto.agregarProducto(nuevoProducto);
 
-        //repositorioDeProducto.save(nuevoProducto);
-
-        return respuesta.ok().body("Nuevo producto agregado");
+        return respuesta.ok().body("Nuevo producto agregado. Nombre: " + nuevoProducto.getNombre());
     }
 
     @GetMapping("/obtenerProductos")

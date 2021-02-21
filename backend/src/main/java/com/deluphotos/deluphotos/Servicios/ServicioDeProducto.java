@@ -16,4 +16,8 @@ public class ServicioDeProducto {
     public List<Producto> obtenerTodosLosProductos() {
         return repositorioDeProducto.findAll();
     }
+
+    public Producto agregarProducto(Producto nuevoProducto) {
+        return repositorioDeProducto.save(nuevoProducto);
+    }
 }

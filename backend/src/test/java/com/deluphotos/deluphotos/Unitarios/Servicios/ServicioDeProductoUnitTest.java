@@ -18,17 +18,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class ServicioDeProductoUnitTest {
 
-    /*@TestConfiguration
-    static class ContextoServicioDeProductoUnitTest {
-        @Bean
-        public ServicioDeProducto servicioDeProducto(){
-            return new ServicioDeProducto();
-        }
-    }*/
-
-    /*@Autowired
-    private ServicioDeProducto servicioDeProducto;*/
-
     @Mock
     private RepositorioDeProducto mockRepositorioDeProducto;
 
